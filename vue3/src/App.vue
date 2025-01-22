@@ -4,7 +4,7 @@
       <img alt="." :src="imgSrc" style="height:100%" />
       <div class="text-msk">
         <!-- 标题样式 -->
-        <div class="title-can">
+        <!-- <div class="title-can multi-lines">
           <div class="text-can">
             <p class="title emphasis">{{ title }}</p>
             <p class="title">{{ title }}</p>
@@ -17,6 +17,10 @@
             <p class="title emphasis">{{ title2 }}</p>
             <p class="title">{{ title2 }}</p>
           </div>
+        </div> -->
+        <div class="just-two-words">
+          <p class="title emphasis">{{ title0 }}</p>
+          <p class="title">{{ title0 }}</p>
         </div>
       </div>
     </div>
@@ -26,6 +30,8 @@
 <script setup>
 import { onMounted } from 'vue'
 import imgSrc from './assets/img.png'
+
+const title0 = "猛攻"
 
 const title = "一键砍树"
 const title2 = "连锁挖掘"
@@ -41,10 +47,34 @@ onMounted(() => {
 .text-msk {
   width: 100vw;
   height: 100vh;
-  font-size: 100px;
+  font-size: 150px;
 }
 
-.text-msk .title-can {
+.just-two-words {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.just-two-words .title {
+  position: absolute;
+  color: orangered;
+  letter-spacing: 1.5em;
+  font-weight: bold;
+  margin-left: 1.5em;
+}
+
+.just-two-words .title.emphasis {
+  color: cyan;
+  top: calc(50% - 0.64em);
+  left: calc(50% - 3.23em);
+}
+
+/* ------------------------------------- */
+.text-msk .title-can.multi-lines {
   width: 100%;
   height: 100%;
   display: flex;
@@ -54,7 +84,7 @@ onMounted(() => {
   font-weight: bold;
 }
 
-.text-msk .title-can .text-can {
+.text-msk .title-can.multi-lines .text-can {
   position: relative;
   margin: 0.2em 50vw;
   height: 1em;
@@ -63,20 +93,21 @@ onMounted(() => {
   white-space: nowrap;
 }
 
-.text-msk .title-can .text-can .title {
+.text-msk .title-can.multi-lines .text-can .title {
   position: absolute;
   color: orangered;
   letter-spacing: 0.2em;
 }
 
-.text-msk .title-can .text-can .title.emphasis {
+.text-msk .title-can.multi-lines .text-can .title.emphasis {
   color: cyan;
   top: 2px;
-  left: -238px;
+  left: -310px;
 }
 
-.text-msk .title-can .text-can .title.emphasis.only1char{
-  left: -54px;
+.text-msk .title-can.multi-lines .text-can .title.emphasis.only1char {
+  left: -70px;
 }
 
+/* ------------------------------------- */
 </style>
